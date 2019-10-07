@@ -9,8 +9,8 @@
    <version>1.0.0-SNAPSHOT</version>
 
    <modules>
-      <module>package</module>
-      <module>rscript</module>
+      <module>phoneNumber</module>
+      <module>ringlist</module>
       <module>web</module>
    </modules>
 
