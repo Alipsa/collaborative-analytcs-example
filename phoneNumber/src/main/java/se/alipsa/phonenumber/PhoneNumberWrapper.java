@@ -8,9 +8,15 @@ import com.google.i18n.phonenumbers.Phonenumber;
 public final class PhoneNumberWrapper {
 
   private final com.google.i18n.phonenumbers.PhoneNumberUtil numberUtil =
-        com.google.i18n.phonenumbers.PhoneNumberUtil.getInstance();
-        
-  public Phonenumber.PhoneNumber parseAndKeepRawInput(String phoneNumber, String region) throws NumberParseException {
-    return numberUtil.parseAndKeepRawInput(phoneNumber, region);
+        com.google.i18n.phonenumbers.PhoneNumberUtil.getInstance();       
+  
+  public boolean isValid(String phoneNumber, String region) {
+    System.out.println("Evaluating phoneNumber " + phoneNumber);
+    try {
+      Phonenumber.PhoneNumber number = numberUtil.parseAndKeepRawInput(phoneNumber, region);
+      return numberUtil.isValidNumber(number);
+    } catch(Throwable e) {
+      return false;
+    }
   }
 }

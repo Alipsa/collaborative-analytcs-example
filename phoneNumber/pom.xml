@@ -11,13 +11,13 @@
       <version>1.0.0-SNAPSHOT</version>
    </parent>
 
-  <artifactId>phoneNumber</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>phone-number</artifactId>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <!-- general information about your package -->
   <name>phoneNumber</name>
-  <description>TODO: write a short description here</description>
+  <description>Renjin wrapper around googles liphonenumber</description>
 
   <properties>
     <renjin.version>3.5-beta65</renjin.version>
@@ -50,8 +50,8 @@
 
     <dependency>
       <groupId>com.googlecode.libphonenumber</groupId>
-        <artifactId>libphonenumber</artifactId>
-        <version>8.10.19</version>
+      <artifactId>libphonenumber</artifactId>
+      <version>8.10.19</version>
     </dependency> 
     <!-- the hamcrest package is only required if you use it for unit tests -->
     <dependency>
@@ -121,7 +121,7 @@
         <artifactId>renjin-hamcrest-maven-plugin</artifactId>
         <version>1.2</version>
         <configuration>
-          <testFailureIgnore>true</testFailureIgnore>
+          <testFailureIgnore>false</testFailureIgnore>
         </configuration>
         <executions>
           <execution>

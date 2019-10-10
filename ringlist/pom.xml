@@ -4,8 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>se.alipsa</groupId>
+  
+  
+   <parent>
+      <groupId>se.alipsa</groupId>
+      <artifactId>collaborative-analytics-example</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+   </parent>
+   
   <artifactId>ringlist</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -23,6 +29,12 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>se.alipsa</groupId>
+      <artifactId>phoneNumber</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  
     <dependency>
       <groupId>org.renjin</groupId>
       <artifactId>renjin-script-engine</artifactId>
