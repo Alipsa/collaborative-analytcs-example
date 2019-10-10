@@ -11,7 +11,7 @@ public final class PhoneNumberWrapper {
         com.google.i18n.phonenumbers.PhoneNumberUtil.getInstance();       
   
   public boolean isValid(String phoneNumber, String region) {
-    System.out.println("Evaluating phoneNumber " + phoneNumber);
+    //System.out.println("Evaluating phoneNumber " + phoneNumber);
     try {
       Phonenumber.PhoneNumber number = numberUtil.parseAndKeepRawInput(phoneNumber, region);
       return numberUtil.isValidNumber(number);
