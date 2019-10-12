@@ -9,7 +9,10 @@
    <version>1.0-SNAPSHOT</version>
    
    <properties>
+     <renjin.version>LATEST</renjin.version>
      <spring.boot.version>2.1.9.RELEASE</spring.boot.version>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
    </properties>
@@ -41,6 +44,17 @@
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>se.alipsa</groupId>
+      <artifactId>ringlist</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.renjin</groupId>
+      <artifactId>renjin-script-engine</artifactId>
+      <version>${renjin.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -52,5 +66,18 @@
       </plugin>
     </plugins>
   </build>
+  
+   <repositories>
+    <repository>
+      <id>bedatadriven</id>
+      <name>bedatadriven public repo</name>
+      <url>https://nexus.bedatadriven.com/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>mavencentral</id>
+      <name>central</name>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
 
 </project>
