@@ -1,18 +1,18 @@
 package se.alipsa.examples.caweb.service;
 
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import org.renjin.eval.Context;
 import org.renjin.primitives.Types;
 import org.renjin.script.RenjinScriptEngine;
 import org.renjin.script.RenjinScriptEngineFactory;
 import org.renjin.sexp.*;
-import se.alipsa.ringlist.ScriptLoader;
-import se.alipsa.examples.caweb.model.Customer;
-
 import org.springframework.stereotype.Service;
+import se.alipsa.examples.caweb.model.Customer;
+import se.alipsa.ringlist.ScriptLoader;
+
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class ReportService {
@@ -22,11 +22,11 @@ public class ReportService {
 
   public List<Customer> getRingList() throws java.io.IOException, javax.script.ScriptException {
 
-    try(InputStreamReader in = new InputStreamReader(ScriptLoader.getScript().openStream())) {
+    try (InputStreamReader in = new InputStreamReader(ScriptLoader.getScript().openStream())) {
       engine.eval(in);
       Environment global = engine.getSession().getGlobalEnvironment();
       Context topContext = engine.getSession().getTopLevelContext();
-      ListVector df = (ListVector)global.getVariable(topContext, "validCustomers");
+      ListVector df = (ListVector) global.getVariable(topContext, "validCustomers");
       List<Customer> validCustomers = new ArrayList<>();
       List<List<Object>> rowList = toRowlist(df);
       for (List<Object> row : rowList) {
@@ -38,7 +38,7 @@ public class ReportService {
       return validCustomers;
     }
   }
-    
+
   public List<List<Object>> toRowlist(ListVector df) {
     List<Vector> table = new ArrayList<>();
     for (SEXP col : df) {
@@ -50,7 +50,7 @@ public class ReportService {
   }
 
   public List<List<Object>> transpose(List<Vector> table) {
-      List<List<Object>> ret = new ArrayList<>();
+    List<List<Object>> ret = new ArrayList<>();
     final int N = table.get(0).length();
     for (int i = 0; i < N; i++) {
       List<Object> row = new ArrayList<>();
