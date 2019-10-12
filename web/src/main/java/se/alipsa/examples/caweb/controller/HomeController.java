@@ -3,6 +3,7 @@ package se.alipsa.examples.caweb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import se.alipsa.examples.caweb.service.ReportService;
 
@@ -22,7 +23,12 @@ public class HomeController {
   }
   
   @GetMapping("/ringlist")
-  public String ringList() {
-    return "ringlist.html";
+  public ModelAndView ringList() throws java.io.IOException, javax.script.ScriptException {
+        ModelAndView mav = new ModelAndView();
+
+        mav.addObject("ringList", reportService.getRingList());
+        mav.setViewName("ringlist.html");
+
+        return mav;
   }
 }

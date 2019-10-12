@@ -6,6 +6,11 @@
 </head>
 <body>
 	<h3>Ringlist</h3>
-	
+	<table>
+      <tr th:each="customer: ${ringList}">
+         <td th:text="${customer.name}" />
+         <td th:text="${customer.phone}" />
+      </tr>
+   </table>
 </body>
 </html>

@@ -17,9 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReportService {
 
+  RenjinScriptEngineFactory factory = new RenjinScriptEngineFactory();
+  RenjinScriptEngine engine = factory.getScriptEngine();
+
   public List<Customer> getRingList() throws java.io.IOException, javax.script.ScriptException {
-    RenjinScriptEngineFactory factory = new RenjinScriptEngineFactory();
-    RenjinScriptEngine engine = factory.getScriptEngine();
+
     try(InputStreamReader in = new InputStreamReader(ScriptLoader.getScript().openStream())) {
       engine.eval(in);
       Environment global = engine.getSession().getGlobalEnvironment();
