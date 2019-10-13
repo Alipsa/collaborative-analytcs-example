@@ -22,11 +22,16 @@ public class ReportService {
 
   public List<Customer> getRingList() throws java.io.IOException, javax.script.ScriptException {
 
+    // ScriptLoader is a convenience class from the ringlist artifact
     try (InputStreamReader in = new InputStreamReader(ScriptLoader.getScript().openStream())) {
-      engine.eval(in);
+      engine.eval(in); // Run the script
+      
+      // Extract the validCustomers variable
       Environment global = engine.getSession().getGlobalEnvironment();
       Context topContext = engine.getSession().getTopLevelContext();
       ListVector df = (ListVector) global.getVariable(topContext, "validCustomers");
+      
+      // Transform the data.frame to a list of Customer objects
       List<Customer> validCustomers = new ArrayList<>();
       List<List<Object>> rowList = toRowlist(df);
       for (List<Object> row : rowList) {

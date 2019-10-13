@@ -4,7 +4,10 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.Phonenumber;
 
-/* this is temporary workaround until StringConverter is fixed */
+/** 
+ * This wrapper is temporary workaround until the Renjin StringConverter is fixed 
+ * to also treat CharSequences as Strings
+ */
 public final class PhoneNumberWrapper {
 
   private final com.google.i18n.phonenumbers.PhoneNumberUtil numberUtil =
