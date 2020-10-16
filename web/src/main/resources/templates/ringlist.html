@@ -3,14 +3,28 @@
 <head>
    <title>Collaborative Analytics Example</title>
    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+   <link href="webjars/bootstrap/4.5.2/css/bootstrap.min.css"
+         rel="stylesheet">
 </head>
 <body>
-<h3>Ringlist</h3>
-<table>
-   <tr th:each="customer: ${ringList}">
-      <td th:text="${customer.name}"/>
-      <td th:text="${customer.phone}"/>
-   </tr>
-</table>
+<div class="container pt-3">
+   <h3>Ringlist</h3>
+   <div class="col-md-6">
+      <table class="table">
+         <thead>
+         <tr>
+            <th>Name</th>
+            <th>Phone number</th>
+         </tr>
+         </thead>
+         <!--/*@thymesVar id="ringList" type="java.util.List<se.alipsa.examples.caweb.model.Customer>"*/-->
+         <tr th:each="customer: ${ringList}">
+            <td th:text="${customer.name}"/>
+            <td th:text="${customer.phone}"/>
+         </tr>
+      </table>
+   </div>
+   <a href="/" class="btn btn-primary">Home</a>
+</div>
 </body>
 </html>
